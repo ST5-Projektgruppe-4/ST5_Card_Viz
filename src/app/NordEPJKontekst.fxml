@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.NordEPJKontekstController">
+   <children>
+      <FlowPane prefHeight="200.0" prefWidth="200.0" rowValignment="TOP">
+         <children>
+            <ImageView fx:id="NordEPJBG" fitHeight="600.0" fitWidth="1250.0" onMouseClicked="#GoToHomeScreen" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/NordEPJ_Org_kont.png" />
+               </image></ImageView>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

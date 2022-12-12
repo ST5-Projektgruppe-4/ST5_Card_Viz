@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1250.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.HomeScreenController">
+   <children>
+      <FlowPane prefHeight="580.0" prefWidth="370.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <TabPane prefHeight="578.0" prefWidth="368.0" stylesheets="@Style.css" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab text="Journalnotater">
+                     <content>
+                        <AnchorPane style="-fx-border-color: black; -fx-border-radius: 5;">
+                           <children>
+                              <ScrollPane fx:id="journalScrollPane" hbarPolicy="NEVER" layoutX="2.0" layoutY="12.0" prefHeight="535.0" prefViewportHeight="500.0" prefWidth="366.0" style="-fx-border-radius: 5; -fx-background-radius: 5;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+                                <content>
+                                  <AnchorPane fx:id="anchorPaneJournal" minHeight="0.0" minWidth="0.0" prefHeight="2600.0" prefWidth="314.0" style="-fx-background-radius: 5;" />
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab text="Personoplysninger">
+                     <content>
+                        <AnchorPane prefHeight="547.0" prefWidth="343.0" style="-fx-border-color: black; -fx-border-radius: 5; -fx-background-color: #f4f4f4; -fx-background-radius: 5;">
+                           <children>
+                              <HBox layoutX="13.0" layoutY="13.0" prefHeight="21.0" spacing="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                              <HBox layoutY="40.0" prefHeight="24.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                 <children>
+                                    <Text fx:id="txtPersonOplys" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="345.85602951049805" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+              </tabs>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </TabPane>
+         </children>
+      </FlowPane>
+      <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" depthTest="DISABLE" layoutY="11.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="855.0" prefWrapLength="700.0" rowValignment="TOP" style="-fx-border-color: #000000; -fx-border-radius: 5;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="11.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <VBox fx:id="vBoxheader" prefHeight="65.0" prefWidth="855.0" style="-fx-border-color: #000000; -fx-border-radius: 5;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="31.0" prefWidth="853.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tidslinje">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="12.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Button maxHeight="21.0" maxWidth="30.0" minHeight="21.0" minWidth="30.0" mnemonicParsing="false" onMouseClicked="#ShowElements" prefHeight="0.0" prefWidth="0.0">
+                           <HBox.margin>
+                              <Insets left="745.0" />
+                           </HBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <graphic>
+                              <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #f4f4f4;">
+                                 <image>
+                                    <Image url="@../Image/filter_icon_1.png" />
+                                 </image></ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Line endX="852.0" />
+                  <HBox fx:id="hBoxHeaderFilters" alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="853.0">
+                     <children>
+                        <CheckBox fx:id="chBoxCHAFilter" mnemonicParsing="false" onAction="#MetFilterCHA" prefHeight="0.0" prefWidth="141.0" stylesheets="@Style.css" text="CHA2DS2-VASc" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="2.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="chBoxDCFilter" mnemonicParsing="false" onAction="#MetFilterDC" prefHeight="30.0" prefWidth="145.0" stylesheets="@Style.css" text="DC konverteringer" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="chBoxDIAFilter" mnemonicParsing="false" onAction="#MetFilterDIA" prefHeight="35.0" prefWidth="101.0" stylesheets="@Style.css" text="Diagnoser" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="chBoxHASFilter" mnemonicParsing="false" onAction="#MetFilterHAS" prefHeight="35.0" prefWidth="111.0" stylesheets="@Style.css" text="HAS-BLED" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="chBoxMEDFilter" mnemonicParsing="false" onAction="#MetFilterMED" prefHeight="35.0" prefWidth="91.0" stylesheets="@Style.css" text="Medicin" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="chBoxSYMFilter" mnemonicParsing="false" onAction="#MetFilterSYM" prefHeight="35.0" prefWidth="110.0" stylesheets="@Style.css" text="Symptomer" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox fx:id="chBoxVISFilter" mnemonicParsing="false" onAction="#MetFilterVIS" prefHeight="35.0" prefWidth="138.0" stylesheets="@Style.css" text="Vitiale parametre" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" left="10.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <VBox fx:id="vBoxTimeLine" alignment="BOTTOM_CENTER" prefHeight="292.0" prefWidth="855.0">
+               <children>
+                  <AnchorPane fx:id="ancorPaneTimeLine" prefHeight="219.0" prefWidth="853.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </AnchorPane>
+                  <Line fx:id="lineTheTimeLine" endX="700.0" stroke="#4c7c92" strokeLineCap="ROUND" strokeWidth="2.0" />
+                  <HBox alignment="CENTER" prefHeight="31.0" spacing="75.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="34.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="lbEarlyDate" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="dd/MM/yyyy" />
+                              <Label fx:id="lbEarlyTime" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="HH:mm" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="34.0" prefWidth="100.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="34.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="lbMidDate" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="dd/MM/yyyy" />
+                              <Label fx:id="lbMidTime" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="HH:mm" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="34.0" prefWidth="100.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="100.0" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="34.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="lbToDaysDate" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="dd/MM/yyyy" />
+                              <Label fx:id="lbToDaysTime" alignment="CENTER" prefHeight="17.0" prefWidth="100.0" text="HH:mm" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <Line endX="852.0" />
+                  <HBox alignment="CENTER" prefHeight="31.0" spacing="10.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView24Hours" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="24t" />
+                              <Line fx:id="indi24" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView48Hours" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="48t" />
+                              <Line fx:id="indi48" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView72Hours" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="72t" />
+                              <Line fx:id="indi72" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView1Week" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="1 u" />
+                              <Line fx:id="indi1u" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView1Month" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="1 m" />
+                              <Line fx:id="indi1m" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView6Month" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="6 m" />
+                              <Line fx:id="indi6m" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView1year" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="1 år" />
+                              <Line fx:id="indi1year" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeView5years" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" text="5 år" />
+                              <Line fx:id="indi5year" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="31.0" prefWidth="46.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#metTimeViewmax" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: #ffffff;" text="max">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin></Button>
+                              <Line fx:id="indiMax" startX="20.0" stroke="#4c7c92" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="-1.0" right="-1.0" top="-1.0" />
+         </padding>
+      </FlowPane>
+      <FlowPane columnHalignment="CENTER" hgap="10.0" prefHeight="195.0" prefWidth="855.0" rowValignment="TOP" style="-fx-border-color: #000000; -fx-border-radius: 5;" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="9.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <VBox fx:id="vBoxHeaderInformationTable" prefHeight="195.0" prefWidth="855.0" style="-fx-border-color: #000000; -fx-border-radius: 5;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="853.0" spacing="120.0" style="-fx-background-color: #4C7C92; -fx-background-radius: 2;">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="27.0" prefWidth="300.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="301.0" text="Dato" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="15.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="27.0" prefWidth="300.0">
+                           <children>
+                              <Label fx:id="lbHeaderInformationTable" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="300.0" text="Selected parameter" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Black" size="15.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <Line endX="852.0" />
+                  <ScrollPane prefHeight="159.0" prefWidth="853.0" style="-fx-background-radius: 5; -fx-border-radius: 5;">
+                    <content>
+                      <AnchorPane fx:id="anchorPaneInformationTable" maxWidth="830.0" minHeight="0.0" minWidth="0.0" prefHeight="163.0" prefWidth="830.0" style="-fx-background-radius: 5;" />
+                    </content>
+                  </ScrollPane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="-1.0" right="-1.0" top="-1.0" />
+         </padding>
+      </FlowPane>
+   </children>
+</AnchorPane>
