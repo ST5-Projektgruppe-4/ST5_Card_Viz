@@ -7,24 +7,18 @@ import java.time.LocalDateTime;
  */
 public class Events {
 
-    /**
-     * Attributes of Event class
-     */
-    public int EventID;
-    public String CPR;
-    public LocalDateTime DateTime;
+    public int eventID;
+    public String cpr;
+    public LocalDateTime dateTime;
     public String CHA2DS2VASc;
     public String HASBLED;
-    public String Symptoms;
-    public String Medicine;
-    public String Cardioversions;
-    public String Diagnosis;
-    public String VitalSigns;
+    public String symptoms;
+    public String medicine;
+    public String cardioversions;
+    public String diagnosis;
+    public String vitalSigns;
 
     /**
-     *
-     *
-     * /**
      * Constructor with 9 inputs
      *
      * @param eventID
@@ -39,15 +33,15 @@ public class Events {
      *
      */
     public Events(int eventID, LocalDateTime dateTime, String CHA2DS2VASc, String HASBLED, String symptoms, String medicine, String cardioversions, String diagnosis, String vitalSigns) {
-        this.EventID = eventID;
-        this.DateTime = dateTime;
+        this.eventID = eventID;
+        this.dateTime = dateTime;
         this.CHA2DS2VASc = CHA2DS2VASc;
         this.HASBLED = HASBLED;
-        this.Symptoms = symptoms;
-        this.Medicine = medicine;
-        this.Cardioversions = cardioversions;
-        this.Diagnosis = diagnosis;
-        this.VitalSigns = vitalSigns;
+        this.symptoms = symptoms;
+        this.medicine = medicine;
+        this.cardioversions = cardioversions;
+        this.diagnosis = diagnosis;
+        this.vitalSigns = vitalSigns;
 
     }
 

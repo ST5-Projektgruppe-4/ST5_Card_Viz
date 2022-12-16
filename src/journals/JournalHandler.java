@@ -54,7 +54,7 @@ public class JournalHandler implements Queryable {
      */
     @Override
     public String returnSqlQuery() {
-        String sqlStatement = "SELECT JournalID, Author, Profession, MedicalWard, DateTime, JournalNote FROM NordEpjJournal";
+        String sqlStatement = "SELECT JournalID, Author, Profession, MedicalWard, DateTime, JournalNote FROM AddOnJournal";
         return sqlStatement;
     }
 
