@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
  */
 public class Events {
 
+    // Attributes of the event class
     public int eventID;
     public String cpr;
     public LocalDateTime dateTime;
