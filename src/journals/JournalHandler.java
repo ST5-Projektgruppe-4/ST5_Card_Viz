@@ -17,7 +17,7 @@ public class JournalHandler implements Queryable {
     /**
      * ArrayList with Person objects
      */
-    public ArrayList<Journal> JournalNotesList = new ArrayList<>();
+    public ArrayList<Journal> journalNotesList = new ArrayList<>();
 
     /**
      * Method for adding a person to the list of persons.
@@ -25,7 +25,7 @@ public class JournalHandler implements Queryable {
      * @param p The Person to add
      */
     public void addJournalNoteToList(Journal p) {
-        this.JournalNotesList.add(p);
+        this.journalNotesList.add(p);
     }
 
     /**
@@ -34,7 +34,7 @@ public class JournalHandler implements Queryable {
      * @return The list with person objects
      */
     public ArrayList<Journal> getJournalNotesList() {
-        return this.JournalNotesList;
+        return this.journalNotesList;
     }
 
     /**

@@ -346,11 +346,11 @@ public class HomeScreenController implements Initializable {
         DatabaseManipulator.executeQueryWithResultSet(ph);
 
         // invert the eventhandler and the journalhandler to get the last event first.
-        Collections.reverse(eh.EventList);
-        Collections.reverse(jh.JournalNotesList);
+        Collections.reverse(eh.eventList);
+        Collections.reverse(jh.journalNotesList);
 
         //This loop adds all rows in the table "NordEpjJournal" into an arraylist
-        for (int j = 0; j < jh.JournalNotesList.size(); j++) {
+        for (int j = 0; j < jh.journalNotesList.size(); j++) {
             Journal journal = jh.getJournalNotesList().get(j);
             UpdateJournalEvent(journal, "dontHighlight", j);
         }
@@ -364,11 +364,11 @@ public class HomeScreenController implements Initializable {
 
         //Here we display the information about the patient in the "Personlige oplysninger" window of the interface
         txtPersonOplys.setText(
-                "Navn: " + Person1.FirstName + " " + Person1.LastName + "\n"
-                + "CPR: " + Person1.CPR + "\n"
-                + "Køn: " + Person1.Gender + "\n"
-                + "Højde: " + Person1.Height + " cm" + "\n"
-                + "Vægt: " + Person1.Weight + " kg"
+                "Navn: " + Person1.firstName + " " + Person1.lastName + "\n"
+                + "CPR: " + Person1.cpr + "\n"
+                + "Køn: " + Person1.gender + "\n"
+                + "Højde: " + Person1.height + " cm" + "\n"
+                + "Vægt: " + Person1.weight + " kg"
         );
 
         ShowTimeLineInTimeView();
@@ -417,8 +417,8 @@ public class HomeScreenController implements Initializable {
         Events Event = eh.getEventList().get(eventreferenceID);
 
         // check if event is empty and do nothing if event is empty
-        if (identifier == CHA && Event.CHA2DS2VASc.isEmpty()) {
-        } else if (identifier == HAS && Event.HASBLED.isEmpty()) {
+        if (identifier == CHA && Event.cha2dsvasc.isEmpty()) {
+        } else if (identifier == HAS && Event.hasbled.isEmpty()) {
         } else if (identifier == SYM && Event.symptoms.isEmpty()) {
         } else if (identifier == MED && Event.medicine.isEmpty()) {
         } else if (identifier == DC && Event.cardioversions.isEmpty()) {
@@ -499,7 +499,7 @@ public class HomeScreenController implements Initializable {
                         break;
                     case HAS:
                         btnElement.setText("HAS");
-                        if (!Event.CHA2DS2VASc.isEmpty() && chaFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && chaFilterOn == true) {
                             eventCounter++;
                         }
                         lineElement.setEndY(eventCounter * 25);
@@ -507,10 +507,10 @@ public class HomeScreenController implements Initializable {
                         break;
                     case SYM:
                         btnElement.setText("SYM");
-                        if (!Event.CHA2DS2VASc.isEmpty() && chaFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && chaFilterOn == true) {
                             eventCounter++;
                         }
-                        if (!Event.HASBLED.isEmpty() && hasFilterOn == true) {
+                        if (!Event.hasbled.isEmpty() && hasFilterOn == true) {
                             eventCounter++;
                         }
 
@@ -520,10 +520,10 @@ public class HomeScreenController implements Initializable {
                     case MED:
                         btnElement.setText("MED");
 
-                        if (!Event.CHA2DS2VASc.isEmpty() && chaFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && chaFilterOn == true) {
                             eventCounter++;
                         }
-                        if (!Event.HASBLED.isEmpty() && hasFilterOn == true) {
+                        if (!Event.hasbled.isEmpty() && hasFilterOn == true) {
                             eventCounter++;
                         }
                         if (!Event.symptoms.isEmpty() && symFilterOn == true) {
@@ -535,10 +535,10 @@ public class HomeScreenController implements Initializable {
                         break;
                     case DC:
                         btnElement.setText("DC");
-                        if (!Event.CHA2DS2VASc.isEmpty() && chaFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && chaFilterOn == true) {
                             eventCounter++;
                         }
-                        if (!Event.HASBLED.isEmpty() && hasFilterOn == true) {
+                        if (!Event.hasbled.isEmpty() && hasFilterOn == true) {
                             eventCounter++;
                         }
                         if (!Event.symptoms.isEmpty() && symFilterOn == true) {
@@ -553,10 +553,10 @@ public class HomeScreenController implements Initializable {
                         break;
                     case DIA:
                         btnElement.setText("DIA");
-                        if (!Event.CHA2DS2VASc.isEmpty() && chaFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && chaFilterOn == true) {
                             eventCounter++;
                         }
-                        if (!Event.HASBLED.isEmpty() && hasFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && hasFilterOn == true) {
                             eventCounter++;
                         }
                         if (!Event.symptoms.isEmpty() && symFilterOn == true) {
@@ -575,10 +575,10 @@ public class HomeScreenController implements Initializable {
                     case VIS:
 
                         btnElement.setText("VP");
-                        if (!Event.CHA2DS2VASc.isEmpty() && chaFilterOn == true) {
+                        if (!Event.cha2dsvasc.isEmpty() && chaFilterOn == true) {
                             eventCounter++;
                         }
-                        if (!Event.HASBLED.isEmpty() && hasFilterOn == true) {
+                        if (!Event.hasbled.isEmpty() && hasFilterOn == true) {
                             eventCounter++;
                         }
                         if (!Event.symptoms.isEmpty() && symFilterOn == true) {
@@ -642,7 +642,7 @@ public class HomeScreenController implements Initializable {
                             journalEventTotalHeight = 0;
                             scrollView = 0;
 
-                            for (int j = 0; j < jh.JournalNotesList.size(); j++) {
+                            for (int j = 0; j < jh.journalNotesList.size(); j++) {
                                 Journal journalloop = jh.getJournalNotesList().get(j);
                                 UpdateJournalEvent(journalloop, "dontHighlight", j);
 
@@ -705,7 +705,7 @@ public class HomeScreenController implements Initializable {
 
         if (FilterIsOn == true) {
 
-            for (int i = 0; i < eh.EventList.size(); i++) {
+            for (int i = 0; i < eh.eventList.size(); i++) {
                 Events Event = eh.getEventList().get(i);
 
                 LocalDateTime EventDateTime = Event.dateTime;
@@ -726,12 +726,12 @@ public class HomeScreenController implements Initializable {
 
         switch (identifier) {
             case CHA:
-                if (!event.CHA2DS2VASc.isEmpty()) {
+                if (!event.cha2dsvasc.isEmpty()) {
                     identifierContainsData = true;
                 }
                 break;
             case HAS:
-                if (!event.HASBLED.isEmpty()) {
+                if (!event.hasbled.isEmpty()) {
                     identifierContainsData = true;
                 }
                 break;
@@ -800,10 +800,10 @@ public class HomeScreenController implements Initializable {
             // set the data of the text with depenedend identifier
             switch (identifier) {
                 case CHA:
-                    txtDataInInformationTable.setText(event.CHA2DS2VASc);
+                    txtDataInInformationTable.setText(event.cha2dsvasc);
                     break;
                 case HAS:
-                    txtDataInInformationTable.setText(event.HASBLED);
+                    txtDataInInformationTable.setText(event.hasbled);
                     break;
                 case SYM:
                     txtDataInInformationTable.setText(event.symptoms);
@@ -901,7 +901,7 @@ public class HomeScreenController implements Initializable {
         scrollView = 0;
 
         //This loop adds all rows in the table "NordEpjJournal" into an arraylist
-        for (int j = 0; j < jh.JournalNotesList.size(); j++) {
+        for (int j = 0; j < jh.journalNotesList.size(); j++) {
             Journal LoopJournal = jh.getJournalNotesList().get(j);
             String LoopString = "dontHighlight";
 
@@ -948,8 +948,8 @@ public class HomeScreenController implements Initializable {
 
         // create label named lbTimeAutherProfessionDepartment and set styling and text
         Label lbTimeAutherProfessionDepartment = new Label();
-        String journalformattedDateTime = journal.DateTime.format(dateTimeFormatter);
-        lbTimeAutherProfessionDepartment.setText(journalformattedDateTime + ", " + journal.Author + ", " + journal.Profession + ", " + journal.MedicalWard);
+        String journalformattedDateTime = journal.dateTime.format(dateTimeFormatter);
+        lbTimeAutherProfessionDepartment.setText(journalformattedDateTime + ", " + journal.author + ", " + journal.profession + ", " + journal.medicalWard);
 
         lbTimeAutherProfessionDepartment.setStyle("-fx-font-size: 13px; -fx-text-fill: #7c7c78; ");
 
@@ -958,7 +958,7 @@ public class HomeScreenController implements Initializable {
         hboxWithlbTimeAutherProfessionDepartment.getChildren().add(0, lbTimeAutherProfessionDepartment);
 
         // Get the text from the journalnote
-        String JournalString = journal.JournalNote;
+        String JournalString = journal.journalNote;
 
         // Makes an area in the journalnotetext that can be highlighted
         final HighlightableTextArea highlightableTextArea = new HighlightableTextArea();
@@ -1019,7 +1019,7 @@ public class HomeScreenController implements Initializable {
 
     public void ShowTimeLineInTimeView() {
         // find the last index of the events
-        int OldestEventIndex = eh.EventList.size() - 1;
+        int OldestEventIndex = eh.eventList.size() - 1;
         // find the event of the last index
         Events Event = eh.getEventList().get(OldestEventIndex);
         int HoursFromNowToLastEvent = (int) timeSinceNow(Event.dateTime) + 500; // 500 is manual adaption making sure the oldest events are pressent
@@ -1045,10 +1045,10 @@ public class HomeScreenController implements Initializable {
             case CHA:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
 
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
-                    if (!actualEvent.CHA2DS2VASc.isEmpty()) {
+                    if (!actualEvent.cha2dsvasc.isEmpty()) {
                         UpdateJournal(eventreferenceID, "CHA2DS2-VASc score");
 
                     }
@@ -1064,10 +1064,10 @@ public class HomeScreenController implements Initializable {
             case HAS:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
 
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
-                    if (!actualEvent.HASBLED.isEmpty()) {
+                    if (!actualEvent.hasbled.isEmpty()) {
 
                         UpdateJournal(eventreferenceID, "HAS-BLED");
                     }
@@ -1079,7 +1079,7 @@ public class HomeScreenController implements Initializable {
             case SYM:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
                     if (!actualEvent.symptoms.isEmpty()) {
                         UpdateJournal(eventreferenceID, actualEvent.symptoms);
@@ -1093,7 +1093,7 @@ public class HomeScreenController implements Initializable {
             case MED:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
 
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
                     if (!actualEvent.medicine.isEmpty()) {
@@ -1108,7 +1108,7 @@ public class HomeScreenController implements Initializable {
             case DC:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
 
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
                     if (!actualEvent.cardioversions.isEmpty()) {
@@ -1123,7 +1123,7 @@ public class HomeScreenController implements Initializable {
             case DIA:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
 
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
                     if (!actualEvent.diagnosis.isEmpty()) {
@@ -1138,7 +1138,7 @@ public class HomeScreenController implements Initializable {
             case VIS:
 
                 //Check if the Datetime for the given Journal matches the Datetime of the event
-                if (journal.DateTime.compareTo(actualEvent.dateTime) == 0) {
+                if (journal.dateTime.compareTo(actualEvent.dateTime) == 0) {
 
                     //Checks that all non-empty matches will be colored when the datapoint/event is clicked
                     if (!actualEvent.vitalSigns.isEmpty()) {

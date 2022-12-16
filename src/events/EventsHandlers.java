@@ -12,7 +12,7 @@ public class EventsHandlers implements Queryable {
     /**
      * ArrayList with Person objects
      */
-    public ArrayList<Events> EventList = new ArrayList<>();
+    public ArrayList<Events> eventList = new ArrayList<>();
 
     /**
      * Method for adding a person to the list of persons.
@@ -20,7 +20,7 @@ public class EventsHandlers implements Queryable {
      * @param p The Person to add
      */
     public void addEventToList(Events p) {
-        this.EventList.add(p);
+        this.eventList.add(p);
     }
 
     /**
@@ -29,7 +29,7 @@ public class EventsHandlers implements Queryable {
      * @return The list with person objects
      */
     public ArrayList<Events> getEventList() {
-        return this.EventList;
+        return this.eventList;
     }
 
     /**

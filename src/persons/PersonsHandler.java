@@ -13,7 +13,7 @@ public class PersonsHandler implements Queryable {
     /**
      * ArrayList with Person objects
      */
-    private ArrayList<Person> PersonList = new ArrayList<>();
+    private ArrayList<Person> personList = new ArrayList<>();
 
     /**
      * Method for adding a person to the list of persons.
@@ -21,7 +21,7 @@ public class PersonsHandler implements Queryable {
      * @param p The Person to add
      */
     public void addPersonToList(Person p) {
-        this.PersonList.add(p);
+        this.personList.add(p);
     }
 
     /**
@@ -30,7 +30,7 @@ public class PersonsHandler implements Queryable {
      * @return The list with person objects
      */
     public ArrayList<Person> getPersonList() {
-        return this.PersonList;
+        return this.personList;
     }
 
     /**

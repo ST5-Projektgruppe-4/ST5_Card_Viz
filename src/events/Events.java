@@ -11,8 +11,8 @@ public class Events {
     public int eventID;
     public String cpr;
     public LocalDateTime dateTime;
-    public String CHA2DS2VASc;
-    public String HASBLED;
+    public String cha2dsvasc;
+    public String hasbled;
     public String symptoms;
     public String medicine;
     public String cardioversions;
@@ -36,8 +36,8 @@ public class Events {
     public Events(int eventID, LocalDateTime dateTime, String CHA2DS2VASc, String HASBLED, String symptoms, String medicine, String cardioversions, String diagnosis, String vitalSigns) {
         this.eventID = eventID;
         this.dateTime = dateTime;
-        this.CHA2DS2VASc = CHA2DS2VASc;
-        this.HASBLED = HASBLED;
+        this.cha2dsvasc = CHA2DS2VASc;
+        this.hasbled = HASBLED;
         this.symptoms = symptoms;
         this.medicine = medicine;
         this.cardioversions = cardioversions;
